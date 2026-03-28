@@ -1,0 +1,71 @@
+Here is the information formatted as bullet points for easy copy-paste:
+
+---
+
+**🏷️ Basic Device Settings**
+- Hostname
+- MOTD Banner
+- Password Encryption
+- Console & Privileged EXEC passwords
+- Setting System Clock
+- Key Commands: `hostname SW1`, `banner motd #Text#`, `service password-encryption`, `enable secret cisco`, `line console 0`
+- Real 9200 Relevance: 100% identical. These commands are the same on the Catalyst 9200.
+
+---
+
+**🌐 Layer 2 Switching**
+- VLANs: Creation, naming
+- Access Ports: Assigning VLANs
+- Trunk Ports: 802.1Q trunking
+- EtherChannel: Link aggregation (LACP)
+- Spanning Tree: PortFast, BPDUguard
+- MAC Address Table: Static entries
+- Key Commands: `vlan 10`, `name Sales`, `interface g0/1`, `switchport mode access`, `switchport access vlan 10`, `switchport mode trunk`, `channel-group 1 mode active`
+- Real 9200 Relevance: 95% identical. The concepts are the same. The real switch has more advanced hardware offloading, but the CLI logic is what you learn here.
+
+---
+
+**🌍 Layer 3 Routing**
+- SVI (Switch Virtual Interface): IP for management & routing
+- Routed Ports: `no switchport`
+- Static Routing
+- Dynamic Routing: OSPF (single-area), EIGRP, RIP
+- Inter-VLAN Routing
+- Key Commands: `interface vlan 1`, `ip address 192.168.1.1 255.255.255.0`, `interface g0/1`, `no switchport`, `ip address 10.0.0.1 255.255.255.0`, `ip route 0.0.0.0 0.0.0.0 10.0.0.254`, `router ospf 1`
+- Real 9200 Relevance: 90% identical. The real Catalyst 9200 is a true Layer 3 switch and supports these protocols. Packet Tracer is excellent for learning the routing logic.
+
+---
+
+**🔐 Security & Access**
+- Port Security: Limit MAC addresses, violation actions
+- DHCP Snooping
+- Dynamic ARP Inspection (DAI)
+- Access Control Lists (ACLs)
+- SSH Configuration
+- Key Commands: `switchport port-security`, `ip dhcp snooping`, `ip arp inspection vlan 10`, `access-list 100 permit ip ...`, `ip domain-name lab.local`, `crypto key generate rsa`
+- Real 9200 Relevance: 70-80% identical. The features are the same, but the real switch has more advanced, hardware-accelerated security (like MACsec), which is configured with additional commands.
+
+---
+
+**⚙️ Network Services**
+- DHCP Server (on the switch)
+- Syslog (logging to a server)
+- NTP (time synchronization)
+- CDP (Cisco Discovery Protocol)
+- SNMP
+- Key Commands: `ip dhcp pool NETWORK`, `logging host 192.168.1.100`, `ntp server 192.168.1.1`, `cdp run`, `snmp-server community public ro`
+- Real 9200 Relevance: 80% identical. The base configuration is the same. The real 9200 adds more modern options like NETCONF/RESTCONF for automation, which you won't practice in Packet Tracer.
+
+---
+
+**📊 QoS & Traffic Control**
+- Storm Control (Broadcast, Multicast, Unicast)
+- Class Maps / Policy Maps (basic)
+- Priority Queuing
+- Protected Ports
+- Key Commands: `storm-control broadcast level 10.00`, `storm-control multicast level bps 10m`, `class-map match-all VOICE`, `policy-map QOS_POLICY`, `switchport protected`
+- Real 9200 Relevance: 50-70% identical. The features exist, but the real switch's ASIC allows for much more granular hardware-level configuration that is beyond Packet Tracer's scope.
+
+---
+
+Let me know if you want me to expand on any specific category with more detailed configuration examples!
